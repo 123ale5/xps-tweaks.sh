@@ -25,7 +25,7 @@ apt -y update
 apt -y full-upgrade
 
 # Install all the power management tools
-if [ "$release" != "focal" ] ; then
+if [ "$release" != "groovy" ] ; then
     add-apt-repository -y ppa:linrunner/tlp
     apt -y update
 fi
@@ -35,8 +35,8 @@ apt -y install thermald tlp tlp-rdw powertop
 sed -i '/RESTORE_DEVICE_STATE_ON_STARTUP/s/=.*/=1/' /etc/tlp.conf
 systemctl restart tlp
 
-# Install the latest nVidia driver and codecs (not needed in Focal as it's all ready out-of-the-box)
-if [ "$release" != "focal" ] ; then
+# Install the latest nVidia driver and codecs (not needed in groovy as it's all ready out-of-the-box)
+if [ "$release" != "groovy" ] ; then
     echo -e "${GREEN}Do you wish to enable PRIME Offloading on the NVIDIA GPU? This may increase battery drain but will allow dynamic switching of the NVIDIA GPU without having to log out.${NC}"
     select yn in "Yes" "No"; do
         case $yn in
