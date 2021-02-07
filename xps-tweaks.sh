@@ -9,7 +9,7 @@ release=$(lsb_release -c -s)
 
 # Check if the script is running under Ubuntu 18.04 Bionic Beaver
 if [ "$release" != "bionic" ] && [ "$release" != "focal" ] ; then
-    >&2 echo -e "${RED}This script is made for Ubuntu 18.04/20.10!${NC}"
+    >&2 echo -e "${RED}This script is made for Ubuntu 20.10!${NC}"
     exit 1
 fi
 
